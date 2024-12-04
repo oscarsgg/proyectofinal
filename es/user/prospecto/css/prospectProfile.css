@@ -1,0 +1,797 @@
+/* Estilos Generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    margin-top: 85px;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+.containeres {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-height: calc(100vh - 40px); /* Esto evitará que el contenedor se vea cortado */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header del perfil */
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 2px solid #e9e9e9;
+}
+
+.profile-image {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #33808e;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #000000;
+}
+
+.profile-info p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Sección de Tareas */
+.tasks-section {
+    padding: 20px 0;
+}
+
+.tasks-section h2 {
+    font-size: 20px;
+    color: #000000;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.tabs {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tab {
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f0f4f8;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.tab.active, .tab:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.scrollable-content {
+    border-top: 1px solid #e9e9e9;
+    padding-top: 20px;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Secciones de contenido */
+.task-list, .teams-list {
+    margin-top: 10px;
+}
+
+.task-list p, .team-item {
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 8px;
+    border-left: 4px solid #000000;
+}
+
+.task-list p.editable:hover, .team-item .editable:hover {
+    background-color: #f0f8ff;
+}
+
+.team-icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+/* Botones */
+.edit-button, .add-button, .remove-button {
+    background-color: #000000;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-button.editing, .edit-button:hover, .add-button:hover, .remove-button:hover {
+    background-color: #313131;
+}
+
+.add-button, .remove-button {
+    margin: 10px 5px 0;
+}
+
+.edit-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.edit-button:hover {
+    transform: translateY(-3px);
+}
+
+/* Estilos de la sección de habilidades */
+.field-label {
+    font-size: 14px;
+    color: #333;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    display: block;
+}
+
+.field {
+    font-size: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    color: #000;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.field.editing {
+    background-color: #e5e5e5;
+    color: #111;
+    outline: none;
+    border-color: #000;
+}
+
+/* Botón de guardar */
+.edit-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.edit-button:hover {
+    background-color: #333;
+    transform: scale(1.05);
+}
+
+/* Modal de confirmación */
+#confirm-modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#confirm-modal p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-button, .cancel-button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #000;
+    color: #fff;
+}
+
+.cancel-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.confirm-button:hover {
+    background-color: #555;
+}
+
+.cancel-button:hover {
+    background-color: #222;
+}
+
+/* Estilos para los formularios de edición */
+.edit-form {
+    background-color: #f9f9f9;
+    border: 1px solid #e9e9e9;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.edit-form .form-group {
+    margin-bottom: 15px;
+}
+
+.edit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.edit-form input[type="text"],
+.edit-form input[type="tel"],
+.edit-form input[type="number"],
+.edit-form input[type="date"],
+.edit-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.edit-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Botones dentro del modal */
+#educationModal .btn-submit,
+#aboutMeModal .btn-submit,
+#experienceModal .btn-submit {
+    background-color: #000000;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 10px;
+}
+
+
+/* Botones dentro de los formularios */
+.edit-form .btn-submit,
+.edit-form .btn-cancel {
+    background-color: #000000;
+    color: white;
+    font-size: 14px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 10px;
+}
+
+.edit-form .btn-submit:hover,
+.edit-form .btn-cancel:hover {
+    background-color: #313131;
+    transform: translateY(-2px);
+}
+
+.edit-form .btn-cancel {
+    background-color: #555;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin-left: 35rem;
+    margin-top: 10rem;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.modal-buttons {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    margin-left: 10px;
+}
+
+/* Estilos para los items de educación y experiencia */
+.education-item,
+.experience-item {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.education-item input,
+.experience-item input,
+.experience-item textarea {
+    margin-bottom: 5px;
+}
+
+.remove-education,
+.remove-experience {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-education:hover,
+.remove-experience:hover {
+    background-color: #ff3333;
+}
+
+/* Ajustes para los botones de edición */
+.edit-button {
+    position: static;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+#addEducation,
+#addExperience {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+#addEducation:hover,
+#addExperience:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+.experience-item, .education-item, .aboutme-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.aboutme-item input, .experience-item input, .education-item input, .experience-item select, .education-item select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+textarea.aboutme-item{
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.responsabilidades-list {
+    margin-top: 10px;
+}
+
+.responsabilidad-item {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.responsabilidad-item input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.add-responsabilidad, .remove-experience, .remove-education {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-responsabilidad {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-responsabilidad:hover, .remove-responsabilidad:hover, .remove-experience:hover, .remove-education:hover {
+    background-color: #333333;
+}
+
+.remove-responsabilidad, .remove-experience, .remove-education {
+    background-color: #ff4d4d;
+}
+
+.remove-responsabilidad:hover, .remove-experience:hover, .remove-education:hover {
+    background-color: #ff3333;
+}
+
+.edit-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-button:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+/* From Uiverse.io by andrew-demchenk0 */ 
+.card {
+    margin-left: 100px;
+    --main-color: #000;
+    --submain-color: #78858F;
+    --bg-color: #fff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    background: var(--bg-color);
+  }
+
+  .card__img {
+    height: 192px;
+    width: 100%;
+    --s: 65px; /* control the size */
+    --c1: #dadee1;
+    --c2: #4a99b4;
+    --c3: #9cceb5;
+  
+    --_c: 75%, var(--c3) 52.72deg, #0000 0;
+    --_g1: conic-gradient(from -116.36deg at 25% var(--_c));
+    --_g2: conic-gradient(from 63.43deg at 75% var(--_c));
+    background: var(--_g1), var(--_g1) calc(3 * var(--s)) calc(var(--s) / 2),
+      var(--_g2), var(--_g2) calc(3 * var(--s)) calc(var(--s) / 2),
+      conic-gradient(
+        var(--c2) 63.43deg,
+        var(--c1) 0 116.36deg,
+        var(--c2) 0 180deg,
+        var(--c1) 0 243.43deg,
+        var(--c2) 0 296.15deg,
+        var(--c1) 0
+      );
+    background-size: calc(2 * var(--s)) var(--s);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .card__img svg {
+    height: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+  
+  .card__avatar {
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    background: var(--bg-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: calc(88px);
+  }
+  
+  .card__avatar svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card__copy {
+    margin-top: 20px;
+    margin-bottom: 33px;
+  }
+  
+  .card__title {
+    margin-top: 60px;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--main-color);
+  }
+  
+  .card__subtitle {
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 15px;
+    color: var(--submain-color);
+  }
+  
+  .card__btn {
+    margin-top: 15px;
+    width: 76px;
+    height: 31px;
+    border: 2px solid var(--main-color);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 11px;
+    color: var(--main-color);
+    background: var(--bg-color);
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  
+  .card__btn-solid {
+    background: var(--main-color);
+    color: var(--bg-color);
+  }
+  
+  .card__btn:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+  }
+  
+  .card__btn-solid:hover {
+    background: var(--bg-color);
+    color: var(--main-color);
+  }
+
+
+/* From Uiverse.io by fbernack */ 
+.mat-input {
+    position: relative;
+    font-size: inherit;
+  }
+  
+  .mat-input input {
+    border-width: 0 0 1px;
+    outline: none;
+    background-color: #0000000a;
+    border-radius: 4px 4px 0 0;
+    padding: 1.8em 0.75em 0.75em;
+    border-color: #8c8c8c;
+    border-style: solid;
+    font-size: inherit;
+    transition: 0.1s;
+  }
+  
+  .mat-input input:hover,
+  .mat-input input:focus {
+    border-bottom-width: 2px;
+    padding-bottom: calc(0.75em - 1px);
+  }
+  
+  .mat-input input:hover {
+    border-color: #121212;
+  }
+  
+  .mat-input input:focus {
+    border-color: #2196f3;
+  }
+  
+  .mat-input label {
+    position: absolute;
+    top: 1.4em;
+    left: 1em;
+    pointer-events: none;
+    transition: 0.2s;
+    color: #0009;
+  }
+  
+  .mat-input:has(input:focus) label {
+    color: #2196f3;
+  }
+  
+  .mat-input:has(input:focus) label,
+  .mat-input:not(:has(input:placeholder-shown)) label {
+    top: 0.75em;
+    font-size: 0.8em;
+  }
+  
+  .mat-input input::placeholder {
+    opacity: 0;
+    transition: 0.2s;
+    color: #aaa;
+  }
+  
+  .mat-input input:focus::placeholder {
+    opacity: 1;
+  }
+
+/* Boton editar */ 
+.editarboton {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 235px;
+    height: 40px;
+    border: none;
+    margin-top: 20px;
+    padding: 0px 20px;
+    background-color: black;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px black;
+    transition-duration: 0.3s;
+  }
+  
+  .salvaje {
+    width: 13px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: 0.3s;
+  }
+  
+  .editarboton:hover {
+    color: transparent;
+  }
+  
+  .editarboton:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: 0.3s;
+  }
+  
+  .editarboton:active {
+    transform: translate(3px, 3px);
+    transition-duration: 0.3s;
+    box-shadow: 2px 2px 0px white;
+  }
+
+  
+  
+/* Ajustes responsivos */
+
+@media (max-width: 768px) {
+    body {
+        margin-left: -80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .edit-form input[type="text"],
+    .edit-form input[type="tel"],
+    .edit-form input[type="number"],
+    .edit-form input[type="date"],
+    .edit-form textarea {
+        font-size: 16px; /* Mejora la legibilidad en dispositivos móviles */
+    }
+
+    .education-item,
+    .experience-item {
+        padding: 15px;
+    }
+
+    .edit-button,
+    .edit-form .btn-submit,
+    .edit-form .btn-cancel,
+    #addEducation,
+    #addExperience {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .profile-info h1 {
+        font-size: 20px;
+    }
+    .profile-info p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .containeres {
+        padding: 10px;
+    }
+
+    .profile-details {
+        padding: 15px;
+    }
+
+    .tab{
+        width: 120px;
+    }
+}

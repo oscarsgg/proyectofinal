@@ -1,0 +1,91 @@
+/* styles.css */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f9fafb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.profile-container {
+    margin-top: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.profile-header {
+    text-align: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-header h2 {
+    color: #333333;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile-header p {
+    color: #555555;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+.profile-section {
+    margin-top: 20px;
+}
+
+.profile-section h3 {
+    font-size: 20px;
+    color: #0073e6;
+    margin-bottom: 10px;
+}
+
+.career-list,
+.responsibility-list {
+    list-style-type: none;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.career-list li,
+.responsibility-list li {
+    color: #555555;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.experience-item {
+    background: #f1f5f9;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 5px solid #0073e6;
+}
+
+.experience-item h4 {
+    font-size: 18px;
+    color: #333333;
+    margin-bottom: 5px;
+}
+
+.experience-item p {
+    color: #555555;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.exp-description {
+    color: #777777;
+    font-style: italic;
+}

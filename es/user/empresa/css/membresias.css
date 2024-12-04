@@ -1,0 +1,541 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    margin-left: 100px;
+    margin-top: 60px;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-heading {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+    justify-content: center;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5em;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(90deg, #000, #333, #000);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.main-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50%;
+    background: #333;
+    opacity: 0.8;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.main-heading {
+    font-size: 3em;
+    font-weight: 700;
+    text-align: center;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: linear-gradient(90deg, #000, #333, #000);
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    display: inline-block;
+}
+
+.main-heading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%);
+    height: 3px;
+    width: 50%;
+    background: #333;
+    opacity: 0.8;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.page-subtitle {
+    font-size: 1.5rem;
+    margin-top: 30px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.alert {
+    padding: 15px 20px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.error-alert {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #c62828;
+}
+
+.success-alert {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #2e7d32;
+}
+
+.expired-alert {
+    background-color: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ef6c00;
+}
+
+.membership-info {
+    font-size: 1.1rem;
+    color: #333;
+    padding: 20px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+    text-align: center;
+    border: 1px solid #90caf9;
+}
+
+.membership-info p {
+    margin: 0;
+}
+
+.membership-date {
+    font-weight: 700;
+    color: #1565c0;
+    font-size: 1.2rem;
+}
+
+
+h1,
+h2 {
+    color: #000;
+}
+
+.plan-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    /* Espacio entre tarjetas */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    position: fixed;
+    top: 50%;
+    /* Centrado verticalmente */
+    left: 50%;
+    /* Centrado horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajuste para centrar completamente */
+    width: 80%;
+    /* Ancho del modal */
+    max-width: 600px;
+    /* Ancho máximo del modal */
+    max-height: 90%;
+    /* Altura máxima para que no se salga de la pantalla */
+    padding: 40px;
+    margin-left: 30px;
+    overflow: hidden;
+    /* Desactiva el scroll dentro del modal */
+    background-color: white;
+    /* Color de fondo blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra para el modal */
+    border-radius: 10px;
+    /* Bordes redondeados */
+    z-index: 1000;
+    /* Asegura que el modal esté encima de otros elementos */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.error {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+.success {
+    color: #008000;
+    margin-bottom: 10px;
+}
+
+/* From Uiverse.io by AnthonyPreite */
+.main__heading {
+    font-weight: 600;
+    font-size: 2.25em;
+    margin-bottom: 0.75em;
+    text-align: center;
+    color: #eceff1;
+}
+
+.cards {
+    position: relative;
+}
+
+.card {
+    --flow-space: 0.5em;
+    --hsl: var(--hue), var(--saturation), var(--lightness);
+    flex: 1 1 14rem;
+    padding: 1.5em 2em;
+    display: grid;
+    grid-template-rows: auto auto auto 1fr;
+    align-items: start;
+    gap: 1.25em;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #00000033;
+    border-radius: 15px;
+}
+
+.card:nth-child(1) {
+    --hue: 165;
+    --saturation: 82.26%;
+    --lightness: 51.37%;
+}
+
+.card__bullets {
+    line-height: 1.4;
+}
+
+.card__heading {
+    font-size: 1.05em;
+    font-weight: 600;
+}
+
+.card__price {
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+.flow>*+* {
+    margin-top: var(--flow-space, 1.25em);
+}
+
+.cta {
+    display: block;
+    align-self: end;
+    margin: 1em 0 0.5em 0;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000000;
+    outline: 1px solid white;
+    padding: 0.7em;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card__cta.selected {
+    background: #000000;
+    color: #ffffff;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.card:hover {
+    --lightness: 80%;
+    background: #ffffff80;
+    color: #000;
+    outline: 1px solid rgb(255, 255, 255);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: all ease-in-out 0.3s;
+}
+
+.card:hover>.cta {
+    outline: none;
+    background-color: #303030;
+}
+
+
+/* Beneficios */
+.benefits-section {
+    background: linear-gradient(to right, #f4f7fc, #e9ecf3);
+    padding: 40px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.benefits-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+}
+
+.benefits-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-bottom: 1.5em;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.benefit-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.benefit-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 270px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    color: #4a90e2;
+    margin-bottom: 15px;
+}
+
+.benefit-card h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Formulario de pago */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    border-radius: 25px;
+}
+
+.form .label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: -moz-fit-content;
+    height: fit-content;
+}
+
+.form .label:has(input:focus) .title {
+    top: 0;
+    left: 0;
+    color: #d17842;
+}
+
+.form .label .title {
+    padding: 0 10px;
+    transition: all 300ms;
+    font-size: 12px;
+    color: #000000;
+    font-weight: 600;
+    width: -moz-fit-content;
+    width: fit-content;
+    top: 14px;
+    position: relative;
+    left: 15px;
+    background: #ffffff;
+}
+
+.form .input-field {
+    width: auto;
+    height: 50px;
+    text-indent: 15px;
+    border-radius: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #21262e;
+    transition: all 0.3s;
+    caret-color: #d17842;
+    color: #aeaeae;
+}
+
+.form .input-field:hover {
+    border-color: rgba(209, 121, 66, 0.5);
+}
+
+.form .input-field:focus {
+    border-color: #d17842;
+}
+
+.form .split {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.form .split label {
+    width: 130px;
+}
+
+.form .checkout-btn {
+    margin-top: 20px;
+    padding: 20px 0;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border: none;
+    justify-content: center;
+    fill: #fff;
+    color: #fff;
+    border: 2px solid transparent;
+    background: #d17842;
+    transition: all 200ms;
+}
+
+.form .checkout-btn:active {
+    scale: 0.95;
+}
+
+.form .checkout-btn:hover {
+    color: #d17842;
+    border: 2px solid #d17842;
+    background: transparent;
+}
+
+
+/* Boton de pago */
+.pay-button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+.Btn {
+    width: 300px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(15, 15, 15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.103);
+    position: relative;
+    overflow: hidden;
+    transition-duration: .3s;
+}
+
+.svgIcon {
+    width: 30px;
+}
+
+.svgIcon path {
+    fill: white;
+}
+
+.Btn::before {
+    width: calc(100% + 40px);
+    aspect-ratio: 1/1;
+    position: absolute;
+    content: "";
+    background-color: white;
+    border-radius: 50%;
+    left: -20px;
+    top: 50%;
+    transform: translate(-150%, -50%);
+    transition-duration: .5s;
+    mix-blend-mode: difference;
+}
+
+.Btn:hover::before {
+    transform: translate(0, -50%);
+}
+
+.Btn:active {
+    transform: translateY(4px);
+    transition-duration: .3s;
+}
+
+@media (max-width: 768px) {
+    body {
+        margin-left: 0;
+    }
+}
