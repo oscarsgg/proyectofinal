@@ -1,0 +1,249 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    margin-left: 50px;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #1c1e21;
+}
+
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Estilos del contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.main-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.main-header h1 {
+    margin: 0;
+    color: #1c1e21;
+    font-size: 24px;
+}
+
+
+/* Estilos para el formulario de vacante */
+.vacante-form {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #1c1e21;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 5px;
+}
+
+.btn-submit {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #292929;
+}
+
+/* Estilos para el mensaje de éxito/error */
+.mensaje {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.mensaje.exito {
+    background-color: #e7f3ff;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+.mensaje.error {
+    background-color: #ffebe8;
+    color: #721c24;
+    border: 1px solid #721c24;
+}
+
+/* ... (estilos anteriores sin cambios) ... */
+
+/* Estilos para los selects múltiples */
+.select-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.select-container select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    font-size: 16px;
+    height: 150px;
+}
+
+#carrera-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los requerimientos */
+.requerimiento-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.requerimiento-item input {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.btn-add-requerimiento,
+.btn-remove-requerimiento {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-remove-requerimiento {
+    background-color: #dc3545;
+}
+
+/* Estilos para los contenedores de checkbox */
+.checkbox-container {
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-scroll {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-item label {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#certificacion-search,
+#carrera-search {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #dddfe2;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Estilo para el scrollbar */
+.checkbox-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.checkbox-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.checkbox-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.checkbox-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .dashboard-container {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .main-content.expanded {
+        margin-left: 0;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="number"],
+    .form-group input[type="date"],
+    .form-group textarea,
+    .form-group select {
+        font-size: 14px;
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+}
